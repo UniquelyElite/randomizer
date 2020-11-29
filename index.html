@@ -7,9 +7,15 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body style="height: 100vh;">
+    <div id="outputHold" style="display: none;">
+        <p id="output"></p>
+    </div>
     <div id="userInput">
         <div id="items"></div>
-        <input type="text" id="itemInput" name="itemInput" placeholder="Insert Item Here" autocomplete="off">
+        <div>
+            <input type="text" id="itemInput" name="itemInput" placeholder="Insert Item Here" autocomplete="off">
+            <button id="randomize" type="button" onclick="random()">Randomize?</button>
+        </div>
     </div>
 </body>
 <script src="index.js"></script>
