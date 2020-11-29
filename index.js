@@ -24,8 +24,12 @@ function insert() {
 }
 function random() {
     let number = Math.floor(Math.random() * items.length);
-    document.getElementById('output').innerText = `'${items[number]}' was chosen, press E to return and R to choose again.`;
-    document.getElementById('outputHold').style.display = 'inline';
+    if (items[number] != null) {
+        document.getElementById('output').innerText = `'${items[number]}' was chosen, press E to return and R to choose again.`;
+        document.getElementById('outputHold').style.display = 'inline';
+    } else {
+        alert('You can\'t randomize nothing! Please insert a list item.');
+    }
 }
 function remove(id) {
     let item = document.getElementById(id);
