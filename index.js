@@ -9,15 +9,14 @@ function insert() {
         let t = document.createTextNode(input)
         p.appendChild(t)
         document.getElementById('items').appendChild(p)
-        items.push(itemNumber)
+        items.push(input)
         document.getElementById('itemInput').value = '';
         if (window.innerHeight < document.getElementById('userInput').offsetHeight) {
             document.getElementsByTagName('body')[0].style.height = '100%';
         }
         document.getElementById(itemNumber).addEventListener('click', (event) => {
-            console.log(`fired@${event.target.id}`);
+            items.splice(items.indexOf(input));
             remove(event.target.id)
-            //remove(event.target.id);
         })
         itemNumber++;
     }
@@ -28,14 +27,12 @@ function random() {
     document.getElementById('outputHold').style.display = 'inline';
 }
 function remove(id) {
-    items.splice(items.indexOf(id));
     let item = document.getElementById(id);
     if (item.parentNode) {
-        item.parentNode.removeChild(node);
+        item.parentNode.removeChild(item);
     }
 }
 addEventListener('keydown', (event) => {
-    console.log(event.key);
     if (event.key == 'Enter'){
         insert();
     }
