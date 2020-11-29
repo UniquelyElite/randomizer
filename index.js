@@ -26,7 +26,7 @@ function random() {
     let number = Math.floor(Math.random() * items.length);
     if (items[number] != null) {
         document.getElementById('output').innerText = `'${items[number]}' was chosen, press E to return and R to choose again.`;
-        document.getElementById('outputHold').style.display = 'inline';
+        document.getElementById('outputHold').style.display = 'flex';
     } else {
         alert('You can\'t randomize nothing! Please insert a list item.');
     }
