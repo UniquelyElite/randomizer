@@ -31,6 +31,16 @@ body {
     color: #50B2C0;
     background-color: black;
 }
+.item:hover {
+    text-decoration: line-through;
+    font-size: 5vh;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2vh;
+    margin-left: 1vh;
+    margin-right: 1vh;
+    color: #50B2C0;
+}
 .item {
     font-size: 5vh;
     text-align: center;

@@ -1,3 +1,4 @@
+alert("Type in the box and hit ENTER to create a list item, click it to delete it, press R to randomize")
 let items = [];
 let itemNumber = 0;
 function insert() {
@@ -23,7 +24,7 @@ function insert() {
 }
 function random() {
     let number = Math.floor(Math.random() * items.length);
-    document.getElementById('output').innerText = `'${items[number]}' was chosen, press ENTER to return and SPACE to choose again.`;
+    document.getElementById('output').innerText = `'${items[number]}' was chosen, press E to return and R to choose again.`;
     document.getElementById('outputHold').style.display = 'inline';
 }
 function remove(id) {
@@ -32,8 +33,12 @@ function remove(id) {
         item.parentNode.removeChild(item);
     }
 }
-addEventListener('keydown', (event) => {
+document.addEventListener('keydown', (event) => {
+    console.log(event.key)
     if (event.key == 'Enter'){
         insert();
-    }
+    } else if (event.key == 'r'){
+        random();
+    } else if (event.key == 'e')
+        document.getElementById('outputHold').style.display = 'none';
 })
