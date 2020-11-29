@@ -34,11 +34,11 @@ function remove(id) {
     }
 }
 document.addEventListener('keydown', (event) => {
-    console.log(event.key)
+    console.log(event)
     if (event.key == 'Enter'){
         insert();
-    } else if (event.key == 'r'){
+    } else if ((event.key == 'r' || event.key == 'R') && event.target.id != 'itemInput') {
         random();
-    } else if (event.key == 'e')
+    } else if (event.key == 'e' || event.key == 'E')
         document.getElementById('outputHold').style.display = 'none';
 })
