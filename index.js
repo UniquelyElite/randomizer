@@ -1,4 +1,4 @@
-alert("Type in the box and hit ENTER to create a list item, click it to delete it, press R to randomize")
+let itemIDs = [];
 let items = [];
 let itemNumber = 0;
 function insert() {
@@ -6,17 +6,26 @@ function insert() {
     if (input != ''){
         let p = document.createElement('p');
         p.setAttribute("id", itemNumber);
-        p.classList.add('item')
-        let t = document.createTextNode(input)
+        p.classList.add('item');
+        for (x in itemIDs) {
+            if (x == itemIDs.length - 1) {
+                console.log(x)
+                document.getElementById(itemIDs[x]).innerText += ',';
+            }
+        }
+        let t = document.createTextNode(`${input}`)
         p.appendChild(t)
         document.getElementById('items').appendChild(p)
+        itemIDs.push(itemNumber.toString())
         items.push(input)
         document.getElementById('itemInput').value = '';
         if (window.innerHeight < document.getElementById('userInput').offsetHeight) {
             document.getElementsByTagName('body')[0].style.height = '100%';
         }
         document.getElementById(itemNumber).addEventListener('click', (event) => {
-            items.splice(items.indexOf(input));
+            itemIDs.splice(itemIDs.indexOf(event.target.id), 1);
+            console.log(itemIDs)
+            items.splice(items.indexOf(event.target.outertext));
             remove(event.target.id)
         })
         itemNumber++;
@@ -25,7 +34,7 @@ function insert() {
 function random() {
     let number = Math.floor(Math.random() * items.length);
     if (items[number] != null) {
-        document.getElementById('output').innerText = `'${items[number]}' was chosen, press E to return and R to choose again.`;
+        document.getElementById('output').innerText = `'${items[number]}' was chosen.`;
         document.getElementById('outputHold').style.display = 'flex';
     } else {
         alert('You can\'t randomize nothing! Please insert a list item.');
@@ -38,7 +47,6 @@ function remove(id) {
     }
 }
 document.addEventListener('keydown', (event) => {
-    console.log(event)
     if (event.key == 'Enter'){
         insert();
     } else if ((event.key == 'r' || event.key == 'R') && event.target.id != 'itemInput') {
