@@ -1,7 +1,7 @@
 # Randomizer
 <!--
 ## Live site
-[Live Site Here](https://uniquelyelite.github.io/)
+[Live Site Here](https://uniquelyelite.github.io/randomizer/)
 -->
 
 ## Info
